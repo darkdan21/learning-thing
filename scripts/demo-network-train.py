@@ -90,7 +90,7 @@ def cnn_model_fn(features, labels, mode):
       activation=tf.nn.relu)
   pool3 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
 
-    conv4 = tf.layers.conv2d(
+  conv4 = tf.layers.conv2d(
       inputs=pool3,
       filters=128,
       kernel_size=[5, 5],
@@ -98,7 +98,7 @@ def cnn_model_fn(features, labels, mode):
       activation=tf.nn.relu)
   pool4 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
 
-    conv5 = tf.layers.conv2d(
+  conv5 = tf.layers.conv2d(
       inputs=pool4,
       filters=128,
       kernel_size=[5, 5],
@@ -106,7 +106,7 @@ def cnn_model_fn(features, labels, mode):
       activation=tf.nn.relu)
   pool5 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
 
-    conv6 = tf.layers.conv2d(
+  conv6 = tf.layers.conv2d(
       inputs=pool5,
       filters=128,
       kernel_size=[5, 5],
