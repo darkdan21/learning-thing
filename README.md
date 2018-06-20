@@ -3,9 +3,9 @@ READ THIS FILE FULLY to understand what you have in the folder and how to do thi
 
 # Important notes
 
-- Most scripts (*.sh and *.py) will respond to the '-h' option with usage instructions.
-- None of the scripts are executable - you need to run the *.sh with `sh name_of_script.sh` and python with `python3 path/to/python_script.py`.
-- All of the scripts assume you are in the directory with all the *.sh files when run (i.e. the top directory of your copy of the files we have provided).
+- Most scripts (\*.sh and \*.py) will respond to the '-h' option with usage instructions.
+- None of the scripts are executable - you need to run the \*.sh with `sh name_of_script.sh` and python with `python3 path/to/python_script.py`.
+- All of the scripts assume you are in the directory with all the \*.sh files when run (i.e. the top directory of your copy of the files we have provided).
 
 # To train your network
 
@@ -33,10 +33,12 @@ These datasets are, obviously, different from the MNIST dataset shown in the pre
 
 ```
 module load bear-apps/2018a
-module load TensorFlow/1.8.0-foss-2018a-Python-3.6.3
+module load OpenCV/3.4.1-iomkl-2018a-Python-3.6.3
 
 sh pre-process.sh -d path/to/test/images/to/process
 ```
+
+**Note:** OpenCV only builds on newer processors, so will not run you the login node - you will have to write a batch job to run these commands.
 
 ## If you want to add your own training samples
 
