@@ -82,11 +82,44 @@ def cnn_model_fn(features, labels, mode):
       activation=tf.nn.relu)
   pool2 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
 
+  conv3 = tf.layers.conv2d(
+      inputs=pool2,
+      filters=128,
+      kernel_size=[5, 5],
+      padding="same",
+      activation=tf.nn.relu)
+  pool3 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
+
+    conv4 = tf.layers.conv2d(
+      inputs=pool3,
+      filters=128,
+      kernel_size=[5, 5],
+      padding="same",
+      activation=tf.nn.relu)
+  pool4 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
+
+    conv5 = tf.layers.conv2d(
+      inputs=pool4,
+      filters=128,
+      kernel_size=[5, 5],
+      padding="same",
+      activation=tf.nn.relu)
+  pool5 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
+
+    conv6 = tf.layers.conv2d(
+      inputs=pool5,
+      filters=128,
+      kernel_size=[5, 5],
+      padding="same",
+      activation=tf.nn.relu)
+  pool6 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
+
+
+
   # Dense Layer
-  pool2_flat = tf.reshape(pool2, [-1, 7 * 7 * 64])
-  dense = tf.layers.dense(inputs=pool2_flat, units=1024, activation=tf.nn.relu)
-  dropout = tf.layers.dropout(
-      inputs=dense, rate=0.4, training=mode == tf.estimator.ModeKeys.TRAIN)
+  pool6_flat = tf.reshape(pool6, [-1, 7 * 7 * 64])
+  dense = tf.layers.dense(inputs=pool6_flat, units=1024, activation=tf.nn.relu)
+  dropout = tf.layers.dropout(inputs=dense, rate=0.4, training=mode == tf.estimator.ModeKeys.TRAIN)
 
   # Logits Layer
   logits = tf.layers.dense(inputs=dropout, units=10)
